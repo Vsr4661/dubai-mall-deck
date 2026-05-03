@@ -3,7 +3,7 @@ import SectionWrapper from '../components/SectionWrapper/SectionWrapper';
 import { StatsGrid } from '../components/Stats/StatsGrid';
 import { DEMOGRAPHICS, VISITOR_STATS } from '../data/mallData';
 
-const MAP_IMG = 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=900&q=80&auto=format&fit=crop';
+const MAP_IMG = 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=900&q=80&auto=format&fit=crop';
 
 const POINTS = [
   { title: '#1 Retail Destination Globally',   body: "Ranked the world's most visited shopping destination — surpassing all other malls globally in annual footfall." },
