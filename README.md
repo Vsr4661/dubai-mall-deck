@@ -8,7 +8,7 @@
 
 ## 🔗 Live Demo
 
-**[View Live →](https://dubai-mall-deck.vercel.app)**
+**[View Live →](https://dubai-mall-deck-rho.vercel.app/)**
 
 ---
 
