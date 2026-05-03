@@ -1,0 +1,99 @@
+/* ─── Google Fonts (must come first) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --dark: #0A0A0A;
+  --dark-2: #111111;
+  --dark-3: #1A1A1A;
+  --light: #F5F5F0;
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar — minimal, non-intrusive ─── */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,168,76,0.2) transparent;
+}
+::-webkit-scrollbar { width: 0px; background: transparent; }
+
+/* ─── Selection ─── */
+::selection { background: var(--gold); color: #000; }
+
+/* ─── Display font ─── */
+.font-display { font-family: 'Playfair Display', serif; }
+
+/* ─── Nav link underline ─── */
+.nav-link {
+  position: relative;
+  padding-bottom: 3px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: none;
+}
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ─── Hero overlay ─── */
+.hero-overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(10,10,10,0.3) 0%,
+    rgba(10,10,10,0.5) 50%,
+    rgba(10,10,10,0.92) 100%
+  );
+}
+
+/* ─── Section divider ─── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.15), transparent);
+}
+
+/* ─── Masonry grid ─── */
+.masonry {
+  columns: 3;
+  column-gap: 1rem;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .masonry { columns: 2; }
+}
+@media (max-width: 480px) {
+  .masonry { columns: 1; }
+}
+
+/* ─── border/8 utility (Tailwind v4 custom) ─── */
+.border-white\/8 { border-color: rgba(255,255,255,0.08); }
