@@ -1,32 +1,25 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const HERO_IMG =
   'https://images.unsplash.com/photo-1546412414-8035e1776c9a?w=1920&q=90&auto=format&fit=crop';
 
-const OpeningHero = ({ onEnquire }) => (
+const OpeningHero = ({ onEnquire }) => {
+  const reduceMotion = useReducedMotion();
+
+  return (
   <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
 
-    {/* ── Static fallback image (always visible beneath video) ── */}
-    <img
+    {/* ── Background image with a slow cinematic zoom (still for reduced motion) ── */}
+    <motion.img
       src={HERO_IMG}
-      alt="Dubai Mall aerial view"
+      alt="Downtown Dubai skyline at sunset"
+      fetchPriority="high"
       className="absolute inset-0 w-full h-full object-cover"
       style={{ filter: 'brightness(0.42)', zIndex: 0 }}
+      initial={reduceMotion ? false : { scale: 1.12 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 14, ease: 'easeOut' }}
     />
-
-    {/* ── Self-hosted background video ── */}
-    {/* Served from /public/hero.mp4 — no CORS, no hotlink issues, guaranteed to play */}
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      disablePictureInPicture
-      className="absolute inset-0 w-full h-full object-cover"
-      style={{ filter: 'brightness(0.38)', zIndex: 1 }}
-    >
-      <source src="/hero.mp4" type="video/mp4" />
-    </video>
 
       {/* ── Cinematic gradient overlay ── */}
       <div
@@ -136,6 +129,7 @@ const OpeningHero = ({ onEnquire }) => (
         </motion.span>
       </motion.button>
     </section>
-);
+  );
+};
 
 export default OpeningHero;

@@ -82,8 +82,6 @@ vercel --prod
 
 ```
 dubai-mall-deck/
-├── public/
-│   └── hero.mp4              # Hero background video (replace with licensed footage)
 ├── src/
 │   ├── components/
 │   │   ├── Card/
@@ -98,10 +96,8 @@ dubai-mall-deck/
 │   │   │   └── Navbar.jsx         # Active section indicator, smooth scroll
 │   │   ├── SectionWrapper/
 │   │   │   └── SectionWrapper.jsx # Standardised layout container
-│   │   ├── Stats/
-│   │   │   └── StatsGrid.jsx      # RAF-based animated number counters
-│   │   └── VideoSection/
-│   │       └── VideoSection.jsx   # Reusable video strip component
+│   │   └── Stats/
+│   │       └── StatsGrid.jsx      # RAF-based animated number counters
 │   ├── data/
 │   │   └── mallData.js            # All content data (brands, events, venues, tiers)
 │   ├── pages/
@@ -133,8 +129,8 @@ Inspired by Apple, Tesla, and LVMH — dark `#0A0A0A` base with `#C9A84C` gold a
 ### 2. Non-Linear Navigation
 A persistent sticky navbar with `IntersectionObserver`-powered active section highlighting lets viewers jump directly to the section most relevant to them — Retail, Sponsorship, or Events — without being forced through a linear flow.
 
-### 3. Video-First Hero
-The hero section uses a self-hosted HTML5 `<video>` element with `autoPlay muted loop playsInline` — the most reliable cross-browser approach for silent background video. A high-quality Unsplash image is always present beneath it as an instant fallback.
+### 3. Cinematic Image Hero
+The hero uses a full-bleed Unsplash photograph of the Downtown Dubai skyline with a slow Framer Motion zoom, which gives the opening a sense of motion without the weight of a background video. Visitors who prefer reduced motion see a still image.
 
 ### 4. Modular Data Layer
 All content lives in `src/data/mallData.js` — brands, dining venues, events, sponsorship tiers, and leasing categories. Updating content requires zero component changes, and new sections can be added by simply adding data entries.
@@ -185,7 +181,7 @@ Every card component has an `onError` handler that hides broken images gracefull
 
 ## 🔮 What I Would Improve With More Time
 
-1. **Real video assets** — Replace the placeholder `hero.mp4` with licensed Dubai Mall official footage from their press kit
+1. **Licensed video** — Add an official, licensed hero video from the Dubai Mall press kit
 2. **Backend CRM integration** — Wire the Enquiry Modal to HubSpot or Salesforce via API so submissions flow directly to the commercial team
 3. **Sub-module routing** — Expand Sponsorship and Leasing into full `/sponsorship` and `/leasing` routes with deeper content pages
 4. **Lighthouse optimisation** — Implement proper lazy loading with `<Suspense>`, image `srcset`, and video preloading strategy to hit 90+ score
